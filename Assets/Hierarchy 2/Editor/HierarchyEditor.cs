@@ -886,7 +886,17 @@ namespace Hierarchy2
             {
                 Undo.RegisterCompleteObjectUndo(element.gameObject,
                     element.gameObject.activeSelf ? "Inactive object" : "Active object");
-                element.gameObject.SetActive(!element.gameObject.activeSelf);
+                
+                // Get the serialized object associated with the GameObject
+                SerializedObject serializedObject = new SerializedObject(element.gameObject);
+
+                // Find the property m_IsActive and flip its value
+                SerializedProperty isActiveProperty = serializedObject.FindProperty("m_IsActive");
+                isActiveProperty.boolValue = !isActiveProperty.boolValue;
+
+                // Apply the property modifications
+                serializedObject.ApplyModifiedProperties();
+                
                 currentEvent.Use();
                 return;
             }
