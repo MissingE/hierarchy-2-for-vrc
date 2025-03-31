@@ -7,7 +7,7 @@ Includes additional features for VRChat (VRC).
 - Objects connected to the Physics Bone component are also displayed.
 - Components that are not active can be checked through icons.
 - Component icons are also changed when Object Active is turned off.
-- "Fixing issues caused by a null component
+- Fixing issues caused by a null component
 
 # Upcoming features
 - Objects connected to the dynamic bone component are also displayed.
